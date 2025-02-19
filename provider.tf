@@ -10,3 +10,11 @@ resource "azurerm_resource_group" "example" {
 }
 
 
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'project2-connection'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      terraform init
+      terraform apply --auto-approve
